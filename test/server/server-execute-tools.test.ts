@@ -216,9 +216,9 @@ describe('NewRelicMCPServer.executeTool coverage', () => {
   });
 
   it('validates search_entities inputs', async () => {
-    await expect(server.executeTool('search_entities', { query: '' } as any)).rejects.toThrow(
-      'query'
-    );
+    await expect(
+      server.executeTool('search_entities', { query: '', target_account_id: '1' } as any)
+    ).rejects.toThrow('query');
     await expect(
       server.executeTool('search_entities', {
         query: 'x',
