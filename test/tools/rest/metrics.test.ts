@@ -34,7 +34,12 @@ describe('REST Metrics Tool', () => {
   it('listMetricNames: no auto_paginate returns first page only and respects page override', async () => {
     get.mockResolvedValueOnce({ status: 200, data: [{ metric: 'Disk' }], links: { next: 'x' } });
     const tool = new RestMetricsTool();
-    const out = await tool.listMetricNames({ application_id: 1, host_id: 2, page: 3 });
+    const out = await tool.listMetricNames({
+      application_id: 1,
+      host_id: 2,
+      page: 3,
+      auto_paginate: false,
+    });
     expect(Array.isArray((out as any).items)).toBeTruthy();
     const call = get.mock.calls[0];
     const query = call[1] as Record<string, unknown>;
