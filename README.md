@@ -54,7 +54,7 @@ npx @smithery/cli inspect @cloudbring/newrelic-mcp
 npx @smithery/cli run @cloudbring/newrelic-mcp --config '{"NEW_RELIC_API_KEY":"...","NEW_RELIC_ACCOUNT_ID":"..."}'
 
 # Install into a specific client
-npx @smithery/cli install @cloudbring/newrelic-mcp --client claude
+npx @smithery/cli install newrelic-mcp --client claude
 
 # Open playground
 npx @smithery/cli playground --port 3001
